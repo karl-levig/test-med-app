@@ -1,11 +1,10 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"; // 👉 Import Link pou navigation SPA
 import "./Navbar.css";
 
 function Navbar() {
-  // State pou kontwole si meni an ouvè oswa fèmen
   const [isActive, setIsActive] = useState(true);
 
-  // Fonksyon pou jere klik sou icon nav la
   const handleClick = () => {
     setIsActive(!isActive);
   };
@@ -14,16 +13,16 @@ function Navbar() {
     <div>
       <nav>
         <div className="nav__logo">
-          <a href="/">
+          <Link to="/">
             StayHealthy
             <img
-              src="images/logo.png"
+              src="/images/logo.png"
               alt="Doctor Icon"
               width="26"
               height="26"
               style={{ marginLeft: "5px" }}
             />
-          </a>
+          </Link>
           <span>.</span>
         </div>
 
@@ -33,20 +32,20 @@ function Navbar() {
 
         <ul className={`nav__links ${isActive ? "active" : ""}`}>
           <li className="link">
-            <a href="../Landing_Page/LandingPage.html">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li className="link">
-            <a href="#">Appointments</a>
+            <Link to="/appointments">Appointments</Link> {/* ✅ Koreksyon */}
           </li>
           <li className="link">
-            <a href="../Sign_Up/Sign_Up.html">
+            <Link to="/signup">
               <button className="btn1">Sign Up</button>
-            </a>
+            </Link>
           </li>
           <li className="link">
-            <a href="../Login/Login.html">
+            <Link to="/login">
               <button className="btn1">Login</button>
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

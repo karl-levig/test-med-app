@@ -1,55 +1,84 @@
-/* Styles for the main container */
+/* Santre paj login lan */
 .container {
-    max-width: 900px; /* Maximum width of the container */
-    margin: 0 auto; /* Center the container horizontally */
-    padding: 40px; /* Padding inside the container */
-    margin-top: 10%; /* Top margin of 10% */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* pran tout wotè ekran an */
+  background: #f8f9fa; /* background limyè pou fè form nan parèt */
 }
 
-/* Styles for form groups */
-.form-group {
-    margin-bottom: 20px; /* Bottom margin for spacing between form groups */
+/* Box ki kenbe tout form nan */
+.login-form {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  text-align: center;
 }
 
-/* Styles for form group labels */
+/* Tit Login nan */
+.login-text h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.login-text span a {
+  color: #009688; /* vèt ble */
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* Labels */
 .form-group label {
-    display: block; /* Make labels display as block elements */
-    margin-bottom: 5px; /* Bottom margin for spacing below labels */
-    font-weight: bold; /* Bold text for labels */
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+  text-align: left;
 }
 
-/* Styles for form controls */
+/* Input fields */
 .form-control {
-    width: 40%; /* Width of form controls */
-    padding: 8px; /* Padding inside form controls */
-    font-size: 16px; /* Font size of form controls */
-    border: 1px solid #ccc; /* Border around form controls */
-    border-radius: 4px; /* Border radius for rounded corners */
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  margin-bottom: 15px;
 }
 
-/* Styles for button groups */
+/* Bouton yo */
 .btn-group {
-    margin-top: .0001px; /* Top margin for spacing above button groups */
-    margin-bottom: 20px; /* Bottom margin for spacing below button groups */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 15px;
 }
 
-/* Styles for buttons */
 .btn {
-    padding: 10px 20px; /* Padding inside buttons */
-    font-size: 16px; /* Font size of buttons */
-    border: none; /* No border for buttons */
-    border-radius: 4px; /* Border radius for rounded corners on buttons */
-    cursor: pointer; /* Cursor style on hover for buttons */
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  width: 100%;
 }
 
-/* Styles for primary buttons */
 .btn-primary {
-    background-color: #007bff; /* Background color for primary buttons */
-    color: #fff; /* Text color for primary buttons */
+  background-color: #009688;
+  color: #fff;
 }
 
-/* Styles for danger (red) buttons */
 .btn-danger {
-    background-color: #dc3545; /* Background color for danger buttons */
-    color: #fff; /* Text color for danger buttons */
+  background-color: #f44336;
+  color: #fff;
+}
+
+/* Forgot password link */
+.login-text:last-child {
+  margin-top: 15px;
+  color: #666;
+  font-size: 14px;
 }
