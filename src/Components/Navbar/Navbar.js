@@ -1,56 +1,71 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom"; // 👉 Import Link pou navigation SPA
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 
-function Navbar() {
-  const [isActive, setIsActive] = useState(true);
+const Navbar = () => {
+  const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userName, setUserName] = useState("");
 
-  const handleClick = () => {
-    setIsActive(!isActive);
+  useEffect(() => {
+    const token = sessionStorage.getItem("auth-token");
+    const email = sessionStorage.getItem("email");
+
+    if (token && email) {
+      setIsLoggedIn(true);
+      const nameFromEmail = email.split("@")[0]; // pran pati avan @
+      setUserName(nameFromEmail);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    sessionStorage.clear();
+    setIsLoggedIn(false);
+    navigate("/login");
+    window.location.reload();
   };
 
   return (
-    <div>
-      <nav>
-        <div className="nav__logo">
-          <Link to="/">
-            StayHealthy
-            <img
-              src="/images/logo.png"
-              alt="Doctor Icon"
-              width="26"
-              height="26"
-              style={{ marginLeft: "5px" }}
-            />
-          </Link>
-          <span>.</span>
-        </div>
+    <nav>
+      {/* Logo */}
+      <div className="nav__logo">
+        <Link to="/">StayHealthy 🧑‍⚕️</Link>
+      </div>
 
-        <div className="nav__icon" onClick={handleClick}>
-          <i className={isActive ? "fa fa-times" : "fa fa-bars"}></i>
-        </div>
+      {/* Links */}
+      <ul className="nav__links">
+        <li className="link">
+          <Link to="/">Home</Link>
+        </li>
+        <li className="link">
+          <Link to="/appointments">Appointments</Link>
+        </li>
 
-        <ul className={`nav__links ${isActive ? "active" : ""}`}>
-          <li className="link">
-            <Link to="/">Home</Link>
+        {/* Kondisyon pou Login / Logout */}
+        {isLoggedIn ? (
+          <li className="link user-info">
+            <span className="welcome-text">Welcome, {userName}</span>
+            <button className="logout-btn" onClick={handleLogout}>
+              Logout
+            </button>
           </li>
-          <li className="link">
-            <Link to="/appointments">Appointments</Link> {/* ✅ Koreksyon */}
-          </li>
-          <li className="link">
-            <Link to="/signup">
-              <button className="btn1">Sign Up</button>
-            </Link>
-          </li>
-          <li className="link">
-            <Link to="/login">
-              <button className="btn1">Login</button>
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </div>
+        ) : (
+          <>
+            <li className="link">
+              <Link to="/signup">
+                <button className="btn1">Sign Up</button>
+              </Link>
+            </li>
+            <li className="link">
+              <Link to="/login">
+                <button className="btn1">Login</button>
+              </Link>
+            </li>
+          </>
+        )}
+      </ul>
+    </nav>
   );
-}
+};
 
 export default Navbar;

@@ -1,7 +1,6 @@
-import React from "react"; // Importing the necessary modules from React library
-import "./LandingPage.css"; // Importing the CSS styles for the Landing_Page component
+import React from "react"; // Import React
+import "./LandingPage.css"; // Import CSS pou style
 
-// Defining the Function component Landing_Page
 const Landing_Page = () => {
   return (
     <section className="hero-section">
@@ -20,7 +19,7 @@ const Landing_Page = () => {
           </div>
 
           <h4>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
             Eaque at quae ducimus. Suscipit omnis quibusdam non cum rem voluptatem!
           </h4>
 
@@ -33,4 +32,4 @@ const Landing_Page = () => {
   );
 };
 
-export default Landing_Page; // Exporting the Landing_Page component
+export default Landing_Page;
