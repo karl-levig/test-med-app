@@ -27,9 +27,16 @@ const Navbar = () => {
 
   return (
     <nav>
-      {/* Logo */}
+      {/* Logo ak teks */}
       <div className="nav__logo">
-        <Link to="/">StayHealthy 🧑‍⚕️</Link>
+        <Link to="/" className="logo-link">
+          <span>StayHealthy</span>
+          <img
+            src="/images/logo.png"
+            alt="StayHealthy logo"
+            className="logo-img"
+          />
+        </Link>
       </div>
 
       {/* Links */}
@@ -41,7 +48,6 @@ const Navbar = () => {
           <Link to="/appointments">Appointments</Link>
         </li>
 
-        {/* Kondisyon pou Login / Logout */}
         {isLoggedIn ? (
           <li className="link user-info">
             <span className="welcome-text">Welcome, {userName}</span>
