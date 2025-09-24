@@ -1,0 +1,46 @@
+.instant-page {
+    text-align: center;
+    padding: 3rem 1rem;
+    font-family: "Montserrat", sans-serif;
+    margin-top: 6rem; /* ajoute espas pou evite tèks la kole ak navbar */
+  }
+  
+  .instant-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 2rem; /* ogmante espas anba tit la */
+  }
+  
+  /* Retire subtitle paske ou pa bezwen li ankò */
+  .instant-subtitle {
+    display: none;
+  }
+  
+  .instant-image img {
+    max-width: 280px;
+    margin: 2rem auto; /* ogmante espas alantou imaj la */
+    display: block;
+  }
+  
+  .search-results-container {
+    margin-top: 2rem;
+  }
+  
+  .results h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .results h3 {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Search bar align */
+  .find-doctor-search {
+    margin: 1.5rem auto;
+    max-width: 600px;
+  }
+  
