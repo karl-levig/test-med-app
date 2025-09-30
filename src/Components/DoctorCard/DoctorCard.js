@@ -1,8 +1,11 @@
 // src/Components/DoctorCard/DoctorCard.js
-import React from "react";
+import React, { useState } from "react";
 import "./DoctorCard.css";
+import AppointmentForm from "../AppointmentForm/AppointmentForm";
 
 const DoctorCard = ({ name, speciality, experience, rating }) => {
+  const [showForm, setShowForm] = useState(false);
+
   return (
     <div className="doctor-card">
       <div className="doctor-card-header">
@@ -17,8 +20,18 @@ const DoctorCard = ({ name, speciality, experience, rating }) => {
       </div>
 
       <div className="doctor-card-footer">
-        <button className="book-btn">Book Appointment</button>
+        <button className="book-btn" onClick={() => setShowForm(true)}>
+          Book Appointment
+        </button>
       </div>
+
+      {/* Louvri AppointmentForm.js la lè yo klike sou bouton an */}
+      {showForm && (
+        <AppointmentForm
+          doctor={{ name, speciality }}
+          onClose={() => setShowForm(false)}
+        />
+      )}
     </div>
   );
 };
