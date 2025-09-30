@@ -1,0 +1,39 @@
+.find-doctor-container {
+  margin: 2rem auto;
+  font-family: "Montserrat", sans-serif;
+}
+
+.search-box {
+  position: relative;
+  max-width: 400px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #1f9d90;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.search-results {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 999;
+}
+
+.result-item {
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+}
+
+.result-item:hover {
+  background: #f0f0f0;
+}
