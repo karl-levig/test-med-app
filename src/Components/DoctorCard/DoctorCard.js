@@ -5,6 +5,17 @@ import AppointmentForm from "../AppointmentForm/AppointmentForm";
 
 const DoctorCard = ({ name, speciality, experience, rating }) => {
   const [showForm, setShowForm] = useState(false);
+  const [appointment, setAppointment] = useState(null);
+
+  const handleBook = (formData) => {
+    setAppointment(formData); // sove done form nan
+    setShowForm(false);
+  };
+
+  const handleCancel = () => {
+    setAppointment(null); // efase randevou an
+    alert(`Appointment with Dr. ${name} has been cancelled.`);
+  };
 
   return (
     <div className="doctor-card">
@@ -20,16 +31,23 @@ const DoctorCard = ({ name, speciality, experience, rating }) => {
       </div>
 
       <div className="doctor-card-footer">
-        <button className="book-btn" onClick={() => setShowForm(true)}>
-          Book Appointment
-        </button>
+        {!appointment ? (
+          <button className="book-btn" onClick={() => setShowForm(true)}>
+            Book Appointment
+          </button>
+        ) : (
+          <button className="cancel-btn" onClick={handleCancel}>
+            Cancel Appointment
+          </button>
+        )}
       </div>
 
-      {/* Louvri AppointmentForm.js la lè yo klike sou bouton an */}
+      {/* Louvri AppointmentForm lè showForm = true */}
       {showForm && (
         <AppointmentForm
           doctor={{ name, speciality }}
           onClose={() => setShowForm(false)}
+          onSubmit={handleBook}
         />
       )}
     </div>

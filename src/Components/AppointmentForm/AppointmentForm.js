@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import "./AppointmentForm.css";
 
-const AppointmentForm = ({ doctor, onClose }) => {
+const AppointmentForm = ({ doctor, onClose, onSubmit }) => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -19,10 +19,23 @@ const AppointmentForm = ({ doctor, onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const appointmentData = {
+      ...formData,
+      doctorName: doctor?.name,
+      doctorSpeciality: doctor?.speciality,
+    };
+
+    // pase done yo monte nan DoctorCard.js
+    if (onSubmit) {
+      onSubmit(appointmentData);
+    }
+
     alert(
       `Appointment booked for ${formData.name} with Dr. ${doctor?.name} on ${formData.date} at ${formData.time}`
     );
-    if (onClose) onClose();
+
+    if (onClose) onClose(); // fèmen form lan apre submit
   };
 
   return (
@@ -73,9 +86,18 @@ const AppointmentForm = ({ doctor, onClose }) => {
             <option value="4:00 PM">4:00 PM</option>
           </select>
 
-          <button type="submit" className="btn-submit">
-            Book Now
-          </button>
+          <div className="form-buttons">
+            <button type="submit" className="btn-submit">
+              Book Now
+            </button>
+            <button
+              type="button"
+              className="btn-cancel"
+              onClick={onClose}
+            >
+              Cancel
+            </button>
+          </div>
         </form>
       </div>
     </div>
