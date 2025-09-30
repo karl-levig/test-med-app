@@ -1,0 +1,52 @@
+/* src/Components/DoctorCard/DoctorCard.css */
+.doctor-card {
+  width: 250px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background: #fff;
+  padding: 1rem;
+  margin: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.doctor-card:hover {
+  transform: translateY(-5px);
+}
+
+.doctor-icon {
+  font-size: 40px;
+  color: #2a9d8f;
+}
+
+.doctor-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+
+.doctor-speciality {
+  font-size: 1rem;
+  color: #555;
+}
+
+.doctor-experience,
+.doctor-rating {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.book-btn {
+  background-color: #007bff;
+  border: none;
+  padding: 0.5rem 1rem;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.book-btn:hover {
+  background-color: #0056b3;
+}
